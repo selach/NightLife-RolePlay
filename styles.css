@@ -1,0 +1,93 @@
+#slider {
+    position: relative;
+    height: 60vh; /* 60% výšky viewportu */
+    overflow: hidden;
+    margin: 0; /* Odstranění mezer okolo slideru */
+    padding: 0; /* Odstranění vnitřních mezer */
+    border-top: none; /* Odstranění šedého proužku nahoře */
+    border-bottom: none; /* Odstranění šedého proužku dole */
+}
+
+.slider-container {
+    display: flex;
+    width: 500%; /* Šířka slideru pro 5 obrázků */
+    height: 100%;
+    transition: transform 1.8s cubic-bezier(0.35, 0.1, 0.35, 1); /* Plynulý přechod */
+}
+
+.slider-item {
+    flex: 0 0 20%; /* Každý obrázek zabírá 20% šířky slideru (5 obrázků) */
+    position: relative;
+    height: 100%;
+    overflow: hidden; /* Skrytí části obrázku, která je mimo slider */
+}
+
+.slider-item img {
+    width: 100%; /* Přizpůsobení šířce slideru */
+    height: 100%; /* Přizpůsobení výšce slideru */
+    object-fit: cover; /* Ořízne obrázek shora a zespoda */
+    display: block;
+}
+
+/* Styl pro popis obrázků */
+.slider-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 25%; /* Maximální šířka popisu na čtvrtinu šířky obrázku */
+    background-color: rgba(255, 255, 255, 0.8); /* Poloprůhledné pozadí pro lepší čitelnost */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    max-height: none; /* Povolí nekonečný růst nahoru podle obsahu */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Umožňuje vertikální růst textu */
+}
+
+/* Styl pro text v popisu */
+.slider-text p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/* Styl pro tlačítko v popisu */
+.slider-text a.btn {
+    display: inline-block;
+    background-color: #333333; /* Tmavá barva pozadí tlačítka */
+    color: #fff; /* Barva textu */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Plynulá změna barev */
+}
+
+.slider-text a.btn:hover {
+    background-color: #c6714f;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.slider-dot {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.slider-dot.active {
+    background-color: #ff6600;
+}
